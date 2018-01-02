@@ -39,5 +39,5 @@ RUN pip install --upgrade pip \
 	&& jupyter nbextension enable snippets_menu/main \
 	# theme
 	&& conda install --yes 'jupyterthemes=0.18.*' \
-	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T
+	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N
 
