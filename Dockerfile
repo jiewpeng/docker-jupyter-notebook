@@ -18,26 +18,28 @@ RUN pip install --upgrade pip \
 	&& python -m spacy download en \
 	&& jupyter contrib nbextension install --user \
 	# set up jupyter notebook extensions
-	&& jupyter nbextension enable latex_envs/latex_envs \
-	&& jupyter nbextension enable codefolding/main \
-	&& jupyter nbextension enable comment-uncomment/main \
-	&& jupyter nbextension enable execute_time/ExecuteTime \
-	&& jupyter nbextension enable hide_input/main \
-	&& jupyter nbextension enable toggle_all_line_numbers/main \
-	&& jupyter nbextension enable code_prettify/2to3 \
-	&& jupyter nbextension enable codefolding/edit \
-	&& jupyter nbextension enable hide_input_all/main \
-	&& jupyter nbextension enable init_cell/main \
-	&& jupyter nbextension enable limit_output/main \
-	&& jupyter nbextension enable python-markdown/main \
-	&& jupyter nbextension enable tree-filter/index \
-	&& jupyter nbextension enable move_selected_cells/main \
-	&& jupyter nbextension enable snippets/main \
-	&& jupyter nbextension enable toc2/main \
-	&& jupyter nbextension enable equation-numbering/main \
-	&& jupyter nbextension enable ruler/main \
-	&& jupyter nbextension enable snippets_menu/main \
+	&& jupyter nbextension enable latex_envs/latex_envs --user \
+	&& jupyter nbextension enable codefolding/main --user \
+	&& jupyter nbextension enable comment-uncomment/main --user \
+	&& jupyter nbextension enable execute_time/ExecuteTime --user \
+	&& jupyter nbextension enable hide_input/main --user \
+	&& jupyter nbextension enable toggle_all_line_numbers/main --user \
+	&& jupyter nbextension enable code_prettify/2to3 --user \
+	&& jupyter nbextension enable codefolding/edit --user \
+	&& jupyter nbextension enable hide_input_all/main --user \
+	&& jupyter nbextension enable init_cell/main --user \
+	&& jupyter nbextension enable limit_output/main --user \
+	&& jupyter nbextension enable python-markdown/main --user \
+	&& jupyter nbextension enable tree-filter/index --user \
+	&& jupyter nbextension enable move_selected_cells/main --user \
+	&& jupyter nbextension enable snippets/main --user \
+	&& jupyter nbextension enable toc2/main --user \
+	&& jupyter nbextension enable equation-numbering/main --user \
+	&& jupyter nbextension enable ruler/main --user \
+	&& jupyter nbextension enable snippets_menu/main --user \
 	# theme
 	&& conda install --yes 'jupyterthemes=0.18.*' \
-	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N
-
+	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N \
+	# snippets
+	&& wget -O ./.local/share/jupyter/nbextensions/snippets/snippets.json \
+		https://raw.githubusercontent.com/jiewpeng/docker-jupyter-notebook/master/snippets.json
