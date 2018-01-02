@@ -17,4 +17,27 @@ RUN pip install --upgrade pip \
 	'jupyter_contrib_nbextensions=0.3.*' \
 	&& python -m spacy download en \
 	&& jupyter contrib nbextension install --user \
-	&& conda install --yes 'ipywidgets=7.0.*'
+	# set up jupyter notebook extensions
+	&& jupyter nbextension enable latex_envs/latex_envs \
+	&& jupyter nbextension enable codefolding/main \
+	&& jupyter nbextension enable comment-uncomment/main \
+	&& jupyter nbextension enable execute_time/ExecuteTime \
+	&& jupyter nbextension enable hide_input/main \
+	&& jupyter nbextension enable toggle_all_line_numbers/main \
+	&& jupyter nbextension enable code_prettify/2to3 \
+	&& jupyter nbextension enable codefolding/edit \
+	&& jupyter nbextension enable hide_input_all/main \
+	&& jupyter nbextension enable init_cell/main \
+	&& jupyter nbextension enable limit_output/main \
+	&& jupyter nbextension enable python-markdown/main \
+	&& jupyter nbextension enable tree-filter/index \
+	&& jupyter nbextension enable move_selected_cells/main \
+	&& jupyter nbextension enable snippets/main \
+	&& jupyter nbextension enable toc2/main \
+	&& jupyter nbextension enable equation-numbering/main \
+	&& jupyter nbextension enable ruler/main \
+	&& jupyter nbextension enable snippets_menu/main \
+	# theme
+	&& conda install --yes 'jupyterthemes=0.18.*' \
+	&& jt -t onedork -fs 95 -altp -tfs 12 -nfs 115 -cellw 88% -T
+
