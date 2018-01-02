@@ -1,0 +1,46 @@
+{
+    "snippets" : [
+        {
+            "name" : "Standard Imports",
+            "code" : [
+                "import pandas as pd",
+                "import numpy as np",
+                "import matplotlib.pyplot as plt",
+                "import seaborn as sns",
+                "",
+                "%matplotlib inline",
+                "sns.set_style('darkgrid')",
+                "pd.options.display.max_rows = 6"
+            ]
+        },
+        {
+            "name" : "NLP",
+            "code" : [
+                "import pandas as pd",
+                "import numpy as np",
+                "import matplotlib.pyplot as plt",
+                "import seaborn as sns",
+                "import spacy",
+                "",
+                "nlp = spacy.load('en')",
+                "%matplotlib inline",
+                "sns.set_style('darkgrid')",
+                "pd.options.display.max_rows = 6"
+            ]
+        },
+        {
+            "name" : "Deep Learning",
+            "code" : [
+                "import pandas as pd",
+                "import numpy as np",
+                "import matplotlib.pyplot as plt",
+                "import seaborn as sns",
+                "import tensorflow as tf",
+                "",
+                "%matplotlib inline",
+                "sns.set_style('darkgrid')",
+                "pd.options.display.max_rows = 6"
+            ]
+        }
+    ]
+}
