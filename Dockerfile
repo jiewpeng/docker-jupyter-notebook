@@ -1,20 +1,10 @@
-FROM jupyter/scipy-notebook:2c80cf3537ca
+FROM gcr.io/kubeflow-images-public/tensorflow-1.13.1-notebook-cpu:v0.5.0
 
-ENV IMAGE_UPDATE_DATE='2 JAN 2018'
+ENV IMAGE_UPDATE_DATE='20 APR 2019'
 
 RUN pip install --upgrade pip \
-	&& pip install -I --no-cache-dir \
-	# Google recommends installing tensorflow using pip and not conda
-	'tensorflow==1.4.*' \
-	&& conda install --yes \
-	'seaborn=0.8.*' \
-	'spacy=2.0.*' \
-	'gensim=3.1.*' \
-	'lxml=4.1.*' \
-	'networkx=2.0' \
-	'nltk=3.2.*' \
-	'textacy=0.5.*' \
-	'jupyter_contrib_nbextensions=0.3.*' \
+	&& pip install --no-cache-dir -r \
+		https://gist.githubusercontent.com/jiewpeng/dc03e3229dfd4843e03e2e01a72aa331/raw/0f95c69b763155ef8a4a1b6449b5dafcb976b9b9/requirements.txt \
 	&& python -m spacy download en \
 	&& jupyter contrib nbextension install --user \
 	# set up jupyter notebook extensions
@@ -38,8 +28,7 @@ RUN pip install --upgrade pip \
 	&& jupyter nbextension enable ruler/main --user \
 	&& jupyter nbextension enable snippets_menu/main --user \
 	# theme
-	&& conda install --yes 'jupyterthemes=0.18.*' \
-	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N \
-	# snippets
-	&& wget -O ./.local/share/jupyter/nbextensions/snippets/snippets.json \
-		https://raw.githubusercontent.com/jiewpeng/docker-jupyter-notebook/master/snippets.json
+	&& conda install --yes 'jupyterthemes' \
+	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N
+
+COPY snippets.json .local/share/jupyter/nbextensions/snippets/snippets.json
