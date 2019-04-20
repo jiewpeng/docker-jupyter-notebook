@@ -32,3 +32,5 @@ RUN pip install --upgrade pip \
 	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N
 
 COPY snippets.json .local/share/jupyter/nbextensions/snippets/snippets.json
+
+CMD ["sh","-c", "jupyter notebook --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='*' --NotebookApp.base_url=${NB_PREFIX}"]
