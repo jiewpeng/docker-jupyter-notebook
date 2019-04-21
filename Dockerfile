@@ -32,7 +32,7 @@ RUN pip install --upgrade pip \
 	&& jt -t onedork -fs 11 -altp -tfs 12 -nfs 115 -ofs 105 -cellw 88% -T -N \
 	# in case image does not come with the start notebook scripts
 	&& wget -O /usr/local/bin/start.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start.sh \
-	&& wget -O /usr/loca/bin/start-singleuser.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start-singleuser.sh \
+	&& wget -O /usr/local/bin/start-singleuser.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start-singleuser.sh \
 	&& wget -O /usr/local/bin/start-notebook.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start-notebook.sh \
 	&& chmod a+rx /usr/local/bin/*
 
