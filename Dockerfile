@@ -33,7 +33,10 @@ RUN pip install --upgrade pip \
 	# in case image does not come with the start notebook scripts
 	&& wget -O /usr/local/bin/start.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start.sh \
 	&& wget -O /usr/local/bin/start-singleuser.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start-singleuser.sh \
-	&& wget -O /usr/local/bin/start-notebook.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start-notebook.sh \
-	&& chmod a+rx /usr/local/bin/*
+	&& wget -O /usr/local/bin/start-notebook.sh https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/start-notebook.sh
+
+USER root
+RUN chmod a+rx /usr/local/bin/*
+USER jovyan
 
 COPY snippets.json .local/share/jupyter/nbextensions/snippets/snippets.json
